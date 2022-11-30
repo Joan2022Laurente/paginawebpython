@@ -1,0 +1,91 @@
+{% include "admin/adminCabecera.html" %}
+<br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    FRESCOS
+                </div>
+                <div class="card-body">
+                    <form action="/admin/frescos/guardar" method="post" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                          <label for="txtNombre" class="form-label">Nombre del producto</label>
+                          <input type="text"
+                            class="form-control" name="txtNombre" id="txtNombre" aria-describedby="helpId" placeholder="Ingrese el nombre del producto">
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtFabricante" class="form-label">FABRICANTE</label>
+                            <input type="text"
+                              class="form-control" name="txtFabricante" id="txtFabricante" aria-describedby="helpId" placeholder="FABRICANTE">
+                          </div>
+                        <div class="mb-3">
+                            <label for="txtCodigo" class="form-label">Codigo del producto</label>
+                            <input type="text"
+                              class="form-control" name="txtCodigo" id="txtCodigo" aria-describedby="helpId" placeholder="Ingrese el codigo">
+                          </div>
+                        <div class="mb-3">
+                          <label for="txtImagen" class="form-label">URL Imagen</label>
+                          <input type="text"
+                            class="form-control" name="txtImagen" id="txtImagen" aria-describedby="helpId" placeholder="Seleccione la imagen">
+                        </div>
+                        <div class="mb-3">
+                          <label for="txtPrecio" class="form-label">Precio</label>
+                          <input type="text"
+                            class="form-control" name="txtPrecio" id="txtPrecio" aria-describedby="helpId" placeholder="Ingrese el precio">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="table-responsive">
+                <table class="table table-light">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">FABRICANTE</th>
+                            <th scope="col">CODIGO</th>
+                            <th scope="col">IMAGEN</th>
+                            <th scope="col">PRECIO</th>
+                            <th scope="col">ACCIONES</th>              
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cap in caps %}
+                        <tr class="">
+                            <td scope="row">{{ cap[0] }}</td>
+                            <td>{{ cap[1] }}</td>
+                            <td>{{ cap[2] }}</td>
+                            <td>{{ cap[3] }}</td>
+                            <td>
+                                <img src="/img/{{ cap[4] }}" class="img-fluid rounded-top" alt="">  
+                            </td>
+                            <td>{{ cap[5] }}</td>
+                            <td>
+                                <form action="/admin/frescos/borrar" method="post">
+                                    <input value="{{ cap[0] }}" type="hidden" name="txtID" id="txtID">
+                                    <button type="submit" class="btn btn-danger">ELIMINAR</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+<br>
+
+
+
+
+{% include "admin/adminPie.html" %}

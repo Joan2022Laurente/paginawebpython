@@ -1,0 +1,86 @@
+{% include "sitio/cabecera.html" %}
+<div class="BODYCARRITOHTML">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center g-2">
+                <div class="txt-heading">CARRO DE COMPRAS</div>		
+                {% if 'sesion_carro' in session %}
+                <a id="btnEmpty" href="{{ url_for('.empty_cart') }}">VACIAR CARRITO</a>
+                <div class="col col-md-8">
+                    
+                    
+                <div class="body-carrito-compras " id="body-shopping-cart">
+                
+                        <table class="tbl-cart" cellpadding="5" cellspacing="1">
+                        <tbody>
+                            <tr>
+                                <th style="text-align:left;"width="30%">NOMBRE</th>
+                                <th style="text-align:right;" width="5%">CANTIDAD</th>
+                                <th style="text-align:right;" width="10%">PRECIO UNITARIO</th>
+                                <th style="text-align:right;" width="10%">PRECIO</th>
+                            </tr>
+                            {% for key, val in session['sesion_carro'].items() %}
+                                {% set cantidad = session['sesion_carro'][key]['cantidad'] %}
+                                {% set precio = session['sesion_carro'][key]['precio'] %}
+                                {% set item_precio = session['sesion_carro'][key]['precioTotal'] %}		
+                                {% set nombre = session['sesion_carro'][key]['nombre'] %}		
+                                {% set codigo = session['sesion_carro'][key]['codigo'] %}			
+                                {% set img = session['sesion_carro'][key]['imagen'] %}
+                                <tr>
+                                    <td class="thth">
+                                        <style>
+                                            .thth{
+                                                display: flex;
+                                                align-items: center;
+                                            }
+                                            .{{ codigo}} {
+                                                background-image:url("{{ img }}");
+                                                background-position: center;
+                                                background-size: cover;
+                                                background-repeat: no-repeat;
+                                                width: 50px;
+                                                height: 50px;
+                                            }
+                                        </style>
+                                        <div class="{{codigo}}"  >
+                                                
+                                        </div>{{ nombre  }} 
+                                        <a href="{{ url_for('.delete_product', borrarr=session['sesion_carro'][key]['codigo']) }}" class="btnRemoveAction">
+                                             <img src="https://static.vecteezy.com/system/resources/thumbnails/009/344/496/small/x-transparent-free-png.png" alt="" width="25px">
+                                        </a>
+                                    </td>
+                
+                
+                                    <td style="text-align:right;">{{ cantidad }}</td>
+                
+                                    <td  style="text-align:right;">S/.{{ precio }}</td>
+                
+                                    <td  style="text-align:right;">S/.{{ item_precio }}</td>
+                
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+            <div class="col col-md-4">
+                        <div class="total-carrito">
+                            <p>Tienes {{ session['todoCantidadTotal'] }} productos en el carrito</p>
+                            <p>Total a pagar: S/.{{ session['todoPrecioTotal'] }}</p>
+                            <button>Elegir metodo de pago</button>
+                        </div>
+                    {% else: %}
+                        <div class="no-records">TU CARRO ESTA VACIO</div>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% include "sitio/pie.html" %}
