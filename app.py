@@ -15,10 +15,10 @@ mysql=MySQL()
 
 
 # CONFIGURACION PARA LA BASE DE DATOS
-app.config['MYSQL_DATABASE_HOST']='localhost'
-app.config['MYSQL_DATABASE_USER']='root'
-app.config['MYSQL_DATABASE_PASSWORD']=''
-app.config['MYSQL_DATABASE_DB']='MEGAMARKET'
+app.config['MYSQL_DATABASE_HOST']='sql10.freemysqlhosting.net'
+app.config['MYSQL_DATABASE_USER']='sql10581834'
+app.config['MYSQL_DATABASE_PASSWORD']='aA47J6WH1Z'
+app.config['MYSQL_DATABASE_DB']='sql10581834'
 mysql.init_app(app)
 
 
@@ -847,5 +847,5 @@ def array_merge( first_array , second_array ):
 
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5001)
+    app.run()
 
