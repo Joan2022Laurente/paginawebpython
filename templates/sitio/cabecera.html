@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <title>MEGAMARKET</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!--icono-->
+  <link rel="icon" href="{{url_for('static', filename='icono.ico')}}">
+  <!-- Bootstrap-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='custom.css')}}"  crossorigin="anonymous">
+  <!--GOOGLE FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=League+Spartan:wght@500;800&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display+SC&family=Poppins&family=Quicksand:wght@300;400;500;600;700&family=Qwitcher+Grypen:wght@400;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500&family=Silkscreen:wght@400;700&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--NABVAR-->
+    <div class="tapa-nav">
+    <nav class="navbar navbar-expand-lg" id="navbar2">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="#">
+            <img class="paNqSg" crossorigin="anonymous" draggable="false" src="{{ url_for('static', filename='icono4.gif')}}" width="45px">
+            MegaMarket
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="s">
+                <img src="{{ url_for('static',filename='barnav.png')}}" alt="" width="30px">
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Inicio</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categorias
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/CAP">Carnes, aves y pescados</a></li>
+                  <li><a class="dropdown-item" href="/frescos">Frutas y verduras</a></li>
+                  <li><a class="dropdown-item" href="/congelados">Congelados</a></li>
+                  <li><a class="dropdown-item" href="/abarrotes">Abarrotes</a></li>
+                  <li><a class="dropdown-item" href="/bebidas">Bebidas</a></li>
+                  <li><a class="dropdown-item" href="/limpieza">Limpieza</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="2.0 4.0 40.0 40.0" zoomAndPan="magnify" style="fill: rgb(255, 255, 255);" role="img" aria-label="Cart "><g id="__id10_sgqu8zqrvk"><path d="M14 36c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4zm-12-32v4h4l7.19 15.17-2.7 4.9c-.31.58-.49 1.23-.49 1.93 0 2.21 1.79 4 4 4h24v-4h-23.15c-.28 0-.5-.22-.5-.5 0-.09.02-.17.06-.24l1.79-3.26h14.9c1.5 0 2.81-.83 3.5-2.06l7.15-12.98c.16-.28.25-.61.25-.96 0-1.11-.9-2-2-2h-29.57l-1.9-4h-6.53zm32 32c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4z" style="fill: inherit;"></path></g></svg>
+                <a class="nav-link" href="/carrito">Carrito 
+                  {% if 'sesion_carro' in session %}
+                    {% if session['todoCantidadTotal'] == 0 %}
+                      {% set string = "" %}
+                    {% else %}
+                      {% set string1 =  session['todoCantidadTotal']|string %}
+                      {% set string2 =    "( " %}
+                      {% set string3 =    " )"  %}
+                      {% set string =    string2+ string1 +string3  %}
+                    {% endif %}
+                  {% else: %}
+                    {% set string = "" %}
+                  {% endif %}
+                {{ string }}
+                </a>
+              </li>
+              <li class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0.0 0.0 464.8 488.0" zoomAndPan="magnify" style="fill: rgb(0, 0, 0);" role="img" aria-label="User outline icon"><g><g id="__id4_s9249ifbfh" style="fill: rgb(255, 255, 255);"><path d="M389.6,265.6l-39.5-28.3l-13.5,18.9l39.5,28.4c41,29.3,65.4,76.9,65.4,127.3v41.4 c0,6.4-5.2,11.6-11.6,11.6h-395c-6.4,0-11.6-5.2-11.6-11.6v-43.7c0-49,23.4-95.8,62.6-125.3l40.3-30.3l-14-18.6l-40.3,30.3 C26.9,299.4,0,353.2,0,409.5v43.7C0,472.4,15.6,488,34.9,488h395c19.2,0,34.9-15.6,34.9-34.9v-41.4 C464.8,353.9,436.7,299.3,389.6,265.6z" style="fill: inherit;"></path><path d="M232.4,255.6c70.5,0,127.8-57.3,127.8-127.8S302.9,0,232.4,0S104.6,57.3,104.6,127.8 S161.9,255.6,232.4,255.6z M232.4,23.2C290,23.2,337,70.2,337,127.8S290,232.4,232.4,232.4s-104.6-46.9-104.6-104.6 S174.7,23.2,232.4,23.2z" style="fill: inherit;"></path></g></g></svg>
+                <a class="nav-link" href="/iniciarsesion">Iniciar Sesión</a>
+              </li>
+              
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="text" placeholder="¿Qué estás buscando?" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 39" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0.5 0.3 47.7 47.7" zoomAndPan="magnify" style="fill: rgb(255, 255, 255);" role="img" aria-label="Magnifying Glass Icon "><g id="__id17_splw7cgtc"><path d="M20.2,38.39A18.2,18.2,0,1,1,33.07,7.33h0A18.19,18.19,0,0,1,20.2,38.39ZM20.2,6a14.2,14.2,0,1,0,10,4.15A14.16,14.16,0,0,0,20.2,6Z" style="fill: inherit;"></path></g><g id="__id18_splw7cgtc"><path d="M46,48a2,2,0,0,1-1.41-.59L30.24,33.07a2,2,0,1,1,2.83-2.83L47.41,44.59A2,2,0,0,1,46,48Z" style="fill: inherit;"></path></g></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <nav class="navbar navbar-expand-lg" id="navbar">
+      <div class="container-fluid" >
+        <a class="navbar-brand" href="#">
+          <img class="paNqSg" crossorigin="anonymous" draggable="false" src="{{ url_for('static', filename='icono4.gif')}}" width="45px">
+          MegaMarket
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="s">
+              <img src="{{ url_for('static',filename='barnav.png')}}" alt="" width="30px">
+          </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorias
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/CAP">Carnes, aves y pescados</a></li>
+                <li><a class="dropdown-item" href="/frescos">Frutas y verduras</a></li>
+                <li><a class="dropdown-item" href="/congelados">Congelados</a></li>
+                <li><a class="dropdown-item" href="/abarrotes">Abarrotes</a></li>
+                <li><a class="dropdown-item" href="/bebidas">Bebidas</a></li>
+                <li><a class="dropdown-item" href="/limpieza">Limpieza</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="2.0 4.0 40.0 40.0" zoomAndPan="magnify" style="fill: rgb(255, 255, 255);" role="img" aria-label="Cart "><g id="__id10_sgqu8zqrvk"><path d="M14 36c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4zm-12-32v4h4l7.19 15.17-2.7 4.9c-.31.58-.49 1.23-.49 1.93 0 2.21 1.79 4 4 4h24v-4h-23.15c-.28 0-.5-.22-.5-.5 0-.09.02-.17.06-.24l1.79-3.26h14.9c1.5 0 2.81-.83 3.5-2.06l7.15-12.98c.16-.28.25-.61.25-.96 0-1.11-.9-2-2-2h-29.57l-1.9-4h-6.53zm32 32c-2.21 0-3.98 1.79-3.98 4s1.77 4 3.98 4 4-1.79 4-4-1.79-4-4-4z" style="fill: inherit;"></path></g></svg>
+              <a class="nav-link" href="/carrito">Carrito 
+                {% if 'sesion_carro' in session %}
+                  {% if session['todoCantidadTotal'] == 0 %}
+                    {% set string = "" %}
+                  {% else %}
+                    {% set string1 =  session['todoCantidadTotal']|string %}
+                    {% set string2 =    "( " %}
+                    {% set string3 =    " )"  %}
+                    {% set string =    string2+ string1 +string3  %}
+                  {% endif %}
+                {% else: %}
+                  {% set string = "" %}
+                {% endif %}
+              {{ string }}
+              </a>
+            </li>
+            <li class="nav-item">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0.0 0.0 464.8 488.0" zoomAndPan="magnify" style="fill: rgb(0, 0, 0);" role="img" aria-label="User outline icon"><g><g id="__id4_s9249ifbfh" style="fill: rgb(255, 255, 255);"><path d="M389.6,265.6l-39.5-28.3l-13.5,18.9l39.5,28.4c41,29.3,65.4,76.9,65.4,127.3v41.4 c0,6.4-5.2,11.6-11.6,11.6h-395c-6.4,0-11.6-5.2-11.6-11.6v-43.7c0-49,23.4-95.8,62.6-125.3l40.3-30.3l-14-18.6l-40.3,30.3 C26.9,299.4,0,353.2,0,409.5v43.7C0,472.4,15.6,488,34.9,488h395c19.2,0,34.9-15.6,34.9-34.9v-41.4 C464.8,353.9,436.7,299.3,389.6,265.6z" style="fill: inherit;"></path><path d="M232.4,255.6c70.5,0,127.8-57.3,127.8-127.8S302.9,0,232.4,0S104.6,57.3,104.6,127.8 S161.9,255.6,232.4,255.6z M232.4,23.2C290,23.2,337,70.2,337,127.8S290,232.4,232.4,232.4s-104.6-46.9-104.6-104.6 S174.7,23.2,232.4,23.2z" style="fill: inherit;"></path></g></g></svg>
+              <a class="nav-link" href="/iniciarsesion">Iniciar Sesión</a>
+            </li>
+            
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="text" placeholder="¿Qué estás buscando?" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 39" preserveAspectRatio="xMidYMid meet" version="1.0" viewBox="0.5 0.3 47.7 47.7" zoomAndPan="magnify" style="fill: rgb(255, 255, 255);" role="img" aria-label="Magnifying Glass Icon "><g id="__id17_splw7cgtc"><path d="M20.2,38.39A18.2,18.2,0,1,1,33.07,7.33h0A18.19,18.19,0,0,1,20.2,38.39ZM20.2,6a14.2,14.2,0,1,0,10,4.15A14.16,14.16,0,0,0,20.2,6Z" style="fill: inherit;"></path></g><g id="__id18_splw7cgtc"><path d="M46,48a2,2,0,0,1-1.41-.59L30.24,33.07a2,2,0,1,1,2.83-2.83L47.41,44.59A2,2,0,0,1,46,48Z" style="fill: inherit;"></path></g></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
