@@ -1,0 +1,308 @@
+.indexbodyhtml{
+    .carousel-dark{
+        background-color: rgb(245, 210, 12);
+        .carousel-inner{
+            .carousel-item{
+                padding: 5px;
+                text-align: center;
+                    h5{
+                        font-size: 0.8rem;
+                        margin-bottom: 0;
+                    }
+                    p{
+                        font-size: 0.7rem;
+                        margin-bottom: 0;
+                        a{
+                            color: rgb(0, 0, 0);  
+                        }
+                    }
+                    @media (max-width:500px) {
+                        h5{
+                            font-size: 0.7rem;
+                        }
+                        p{
+                            font-size: 0.6rem;
+                        }
+                }
+            }
+    
+        }
+        .carousel-indicators{
+            display: none;
+        }
+        .carousel-control-next{
+            display: none;
+        }
+        .carousel-control-prev{
+            display: none;
+        }
+    }
+
+    .carousel-fade{
+        .img{
+            height: 550px;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            
+        }
+
+        .back1{
+            background-image: url("https://media-public.canva.com/Gp6AM/MAD3FAGp6AM/1/s2.jpg");
+        }
+        .back2{
+            background-image: url("https://media-public.canva.com/MADQ5Uu2nlI/1/screen_2x.jpg");
+        }
+        .back3{
+            background-image: url("https://media-public.canva.com/q6-Vo/MAD9puq6-Vo/1/s3.jpg");
+        }
+        .carousel-caption{
+            bottom: 11.2rem;
+            padding: 0;
+            text-align: left;
+            a{
+                margin-top: 5px;
+                background-color: white;
+                border: 0;
+                border-radius: 0 15px 15px 15px;
+                color: black;
+                font-size: 0.8rem;
+                padding: 3px 20px;
+                text-decoration: none;
+                
+            }
+            p{
+                margin-bottom: 0;
+            }
+        }
+        .carousel-indicators{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 35px;
+            button{
+                opacity: 1;
+                border-radius: 50%;
+                height: 8px;
+                width: 8px;
+                transition: all 0.3s ease;
+                margin: 0 15px;
+                border: 1px solid white;
+        }
+            button.active{
+                background-color: transparent;
+                height: 8px;
+                width: 8px;
+        }
+        }
+        @media (max-width:768px) {
+            .img{
+                height: 330px;
+            }
+            .carousel-caption{
+                bottom: 4.5rem;
+            }
+        }
+    }
+
+
+
+    .facts{
+        .caja-fact{
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease;
+            .texto{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg{
+                    margin-right: 10px;
+                    width: 55px;
+                }
+            }
+        }
+        .caja-fact:hover{
+            background-color: rgba(0, 0, 0, 0.111);
+        }
+        .midle{
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+        }
+
+        @media (max-width:767px) {
+            .midle{
+                border: 0;
+                border-top: 1px solid gray;
+                border-bottom:  1px solid gray;
+            }
+        }
+
+    }
+    
+    .categorias{
+        .TITULO{
+            margin-top: 35px;
+            margin-bottom: 20px;
+            h3{
+                font-family: quicksand;
+                font-weight: 500;
+                font-size: 1.5rem;
+                padding-bottom:0 ;
+                padding: 5px 25px;
+                display: inline-flex;
+                border-radius: 0px 0px 35px 35px;
+                color: white;
+                background: RED;
+                margin-bottom: 0;
+            }
+        }
+        .categoriasCaja{
+            a{
+                text-decoration: none;
+            }
+            .categorias{
+                position: relative;
+                display: inline-block;
+                height: 230px;
+                padding: 6px;
+                text-align: center;
+                h5{
+                    letter-spacing: 1px;
+                    position: absolute;
+                    font-size: 0.7rem;
+                    font-weight: 700;
+                    color: rgb(255, 255, 255);
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    opacity: 0;
+                    transition: all 0.4s ease;
+                    width: 95%;
+                    font-weight: 500;
+                }  
+                h4{
+                    line-height: 1;
+                    position: absolute;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: rgb(255, 255, 255);
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    display:inline-block;
+                    transition: all 0.4s ease;
+                    width: 95%;
+                }
+                .contenedor{
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 100%;
+                    border-radius: 6px;
+                    transition: transform 0.5s ease, background-position 5s ease, filter 0.5s ease;
+                    .texto{
+                        height: 100%;
+                        text-align: center;
+                  }
+                }
+            
+            .cat1{
+                background-image: linear-gradient(rgba(0, 0, 0, 0.248),rgba(0, 0, 0, 0.239)),url("https://i.blogs.es/1c775d/carnes/1366_2000.jpg");
+            }
+            .cat2{
+                background-image:linear-gradient(rgba(0, 0, 0, 0.248),rgba(0, 0, 0, 0.239)),url("https://img.freepik.com/fotos-premium/mezcla-frutas-verduras-coloridas-colores-humor-negros-oscuros-sobre-mesa-concepto-estilo-vida-saludable-plan-nutricion-dietetica-ingredientes-ensaladas-productos-naturales-bio-organicos-tienda_425263-5082.jpg?w=2000");
+            }
+            .cat3{
+                background-image:linear-gradient(rgba(0, 0, 0, 0.248),rgba(0, 0, 0, 0.239)),url("https://www.telemundo.com/sites/nbcutelemundo/files/styles/fit-760w/public/images/article/cover/2019/03/25/productos-de-limpieza-naturales-cubeta.jpg?ramen_itok=iqwQftIcTf");
+            }
+            .cat4{
+                background-image:linear-gradient(rgba(0, 0, 0, 0.248),rgba(0, 0, 0, 0.239)),url("https://static.mercadonegro.pe/wp-content/uploads/2020/08/17190459/117864935_3186057494764662_3906461787363220217_o.jpg");
+            }
+            .cat5{
+                background-image:linear-gradient(rgba(0, 0, 0, 0.248),rgba(0, 0, 0, 0.239)),url("https://media-public.canva.com/_WGVc/MADzIz_WGVc/1/s3.jpg");
+            }
+            .cat6{
+                background-image:linear-gradient(rgba(0, 0, 0, 0.248),rgba(0, 0, 0, 0.239)),url("https://media-public.canva.com/y44JM/MADyQyy44JM/1/s3.jpg");
+            }
+            .cat7{
+                background-image:linear-gradient(rgba(0, 0, 0, 0.248),rgba(0, 0, 0, 0.239)),url("https://media-public.canva.com/Lpzec/MAEN77Lpzec/1/s2.jpg");
+            }
+    
+        }
+        }
+        .categorias:hover{
+            .contenedor{
+                transform: scale(1.028);
+                cursor: pointer;
+                background-position: top;
+                background-attachment: fixed;
+                filter: brightness(0.7);  
+            }
+            h4{
+                top: 40%;
+                font-size: 1.1rem;
+            }
+            h5{
+                top: 60%;
+                display: inline-block;
+                opacity: 1;
+            }
+
+
+        }
+    }
+
+
+    .container-fluid{
+        margin-top: 40px;
+        .row {
+            padding: 3px;
+            .col-md-2{
+                .card{
+                    border: 0;
+                    border-radius: 0;
+                    padding: 3px;
+                    .card-border{
+                        border: 1px solid rgba(11, 11, 11, 0.231);
+                        .card-img-top{
+                            border-radius: 0;
+                            height: 230px;
+                        }
+                        @media (max-width:500px) {
+                            .card-img-top{
+                                height: 190px;
+                            }
+                        }
+                        .card-body{
+                            padding: 10px 10px;
+                            .card-title{
+                                font-family: 'Quicksand', sans-serif;
+                                font-size: 0.8rem;
+                                font-weight: 400;
+                                padding: 0;
+                                margin: 0;
+                            }
+                            .caja-button{
+                                text-align: center;
+                                button{
+                                    border: 0;
+                                    padding: 0;
+                                    background-color: red;
+                                    color: white;
+                                    padding: 2px 19px 3px 19px;
+                                    border-radius: 40px;
+                                    font-size: 0.7rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .row > *{padding: 0;}
+    }
+}
