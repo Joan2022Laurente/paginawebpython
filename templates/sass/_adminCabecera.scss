@@ -1,0 +1,101 @@
+.bodyAdminCabecera{
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    .margen-arriba{
+        background-color: rgb(245, 210, 12);
+        height: 4.5rem;
+    }
+    .navbar{
+        transition: all 0.4s ease ;
+        width: 100%;
+        position: fixed;
+        z-index: 10000;
+        background-color: #000000;
+        color: white;
+        height: 4.5rem;
+        .container-fluid{
+            background-color: #000000;
+        }
+        .navbar-toggler{
+            border: 0;
+        }
+        .navbar-toggler:focus{
+            box-shadow: none;
+        }
+        .nav-item a{
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: white;
+            transition: all 0.4s;
+        }
+        .nav-item a:hover{
+            color: white;
+            box-shadow: inset 0px -1px rgb(255, 255, 255);
+        }
+        .navbar-brand{
+            border-radius: 80px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            box-shadow:none;
+            img{
+                position: relative;
+                width:145px;
+            }
+        }
+        .dropdown-menu{
+            background-color: black;
+        }
+        .dropdown-item{
+            background-color: black;
+            color: white;
+        }
+        .bi-border-width{
+            color: rgb(255, 255, 255);
+        }
+        ::placeholder{
+            color: rgba(255, 255, 255, 0.403);
+            font-size: 0.8rem;
+        }
+        .form-control{
+            border-radius: 30px;
+            background-color: rgba(255, 255, 255, 0);
+            font-size: 0.8rem;
+            box-shadow: none;
+            border: 1px solid white;
+            color: rgb(255, 255, 255);
+            font-weight: 400;
+            transition: all 0.4s ease;
+        }
+        .form-control:focus{
+            background-color: rgba(255, 255, 255, 0);
+        }
+    
+        ::placeholder 
+        {
+            color: white;
+        }
+        .btn{
+            border: 0;
+            border-radius: 15px;
+            box-shadow: none;
+            color: white;
+            font-size: 0.9rem;
+            padding: 0 15px;
+            
+        }
+        .btn:hover{
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+        }
+    
+        .nav-link.active{
+            color: rgb(192, 41, 41);
+        }
+    
+    }
+    
+    
+}

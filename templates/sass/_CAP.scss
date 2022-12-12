@@ -1,0 +1,78 @@
+.bodyCAPhtml{
+    .banner{
+        background-position: center;
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 480px;
+        .texto{
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            h2{
+                margin: 6px;
+                border-left: 3px solid rgb(245, 210, 12);
+                font-family: 'Quicksand', sans-serif;
+                color: rgb(255, 255, 255);
+                padding: 10px 10px;
+                text-align: left;
+                font-size: 1.8rem;
+                font-weight: 500;
+                
+            }
+        }
+    }
+
+    .container-fluid{
+        margin-top: 40px;
+        .row {
+            padding: 3px;
+            .col-md-2{
+                .card{
+                    border: 0;
+                    border-radius: 0;
+                    padding: 3px;
+                    .card-border{
+                        border: 1px solid rgba(11, 11, 11, 0.231);
+                        .card-img-top{
+                            border-radius: 0;
+                            height: 230px;
+                        }
+                        @media (max-width:500px) {
+                            .card-img-top{
+                                height: 190px;
+                            }
+                        }
+                        .card-body{
+                            padding: 10px 10px;
+                            .body-form-arriba{
+                                height: 7rem;
+                            }
+                            .card-title{
+                                font-family: 'Quicksand', sans-serif;
+                                font-size: 0.8rem;
+                                font-weight: 400;
+                                padding: 0;
+                                margin: 0;
+                            }
+                            .caja-button{
+                                text-align: center;
+                                button{
+                                    border: 0;
+                                    padding: 0;
+                                    background-color: red;
+                                    color: white;
+                                    padding: 2px 19px 3px 19px;
+                                    border-radius: 40px;
+                                    font-size: 0.7rem;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .row > *{padding: 0;}
+    }
+}

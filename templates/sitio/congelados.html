@@ -1,0 +1,128 @@
+{% include "sitio/cabecera.html" %}
+
+<div class="bodyCAPhtml">
+    <div class="banner">
+        <div class="texto">
+            <h2>CONGELADOS ({{lon}} productos)</h2>
+        </div>
+        <style>
+      .banner{
+        background-image:linear-gradient(rgba(0, 0, 0, 0.266), rgba(0, 0, 0, 0.364)),url("https://www.tastingtable.com/img/gallery/mistakes-everyone-makes-with-frozen-food/l-intro-1657201716.jpg");
+        filter: saturate(150%);
+      }
+          
+        </style>
+    </div>
+
+    <div class="container-fluid p-4">
+        <div class="row">
+            <div class="filtrados col-12 col-md-2 p-1">
+                <div class="titulo-filtros">
+                  <h5>Filtrar por:</h5>
+                </div>
+                <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Marcas
+                      </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                      <div class="acordeon-filtrado accordion-body">
+                        <div class="list-group">
+                          <a href="#masvendidos" class="list-group-item list-group-item-action categoriaItem" category="todo">Todo</a>
+                        {% for a in range(numFabricantes) %}
+        
+                          <a href="#masvendidos" class="list-group-item list-group-item-action categoriaItem" category="{{fabricantes[a]}}">{{fabricantes[a]}}</a>
+                        {%endfor%}
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Precio
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div class="accordion-body-inputs">
+                        <div class="price-input">
+                          <div class="field">
+                            <input type="number" class="input-min-PRECIO"  placeholder="Desde" >
+                          </div>
+                          -
+                          <div class="field">
+                            <input type="number" class="input-max-PRECIO" placeholder="Hasta">
+                          </div>
+                        </div>
+                        <div class="cajaBoton">
+                          <button class="botonFiltroCosto">FILTRAR</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% for cap in capss %}
+            <div class=" cajaDeProductosVista cardCAJA col-6 col-md-2" category="{{cap.fabricante}}" price="{{cap.precio}}">
+                <div class="card">
+                    <div class="card-border">
+                        <style>
+                            .imgbackcode{{cap.codigo}} {
+                                background-image:url("{{cap.imagen}}");
+                                background-position: center;
+                                background-size: contain;
+                                background-repeat: no-repeat;
+                            }
+                        </style>
+                        <div class="imgbackcode{{cap.codigo}} card-img-top">
+
+                        </div>
+                        <div class="card-body">
+
+                            <form action="/congelados/add" method="post" enctype="multipart/form-data">
+                                <div class="body-form-arriba">
+                                    <div class="mb-1">
+                                        <!-- id -->
+                                        <input type="hidden" value="{{ cap.id }}" class="form-control" name="txtID" id="txtID">
+                                    </div>
+                                    <div class="mb-2">
+                                      <!-- nombre -->
+                                      <input type="hidden" value="{{ cap.nombre }}"name="txtNombre" id="txtNombre">
+                                        <h4 class="card-title"><strong>{{ cap.nombre }}</strong></h4>
+                                    </div>
+                                    <div class="mb-2">
+                                        <!-- fabricante -->
+                                        <input type="hidden" value="{{ cap.fabricante }}"name="txtFabricante" id="txtFabricante">
+                                          <h4 class="card-title"><strong>{{ cap.fabricante }}</strong></h4>
+                                      </div>
+                                    <div class="mb-2">
+                                        <!-- codigo -->
+                                        <input type="hidden" value="{{ cap.codigo }}"name="txtCodigo" id="txtCodigo">
+                                    </div>
+                                    <!-- cantidad -->
+                                    <input type="hidden" name="cantidad" value="1" size="2"/>
+                                    <div class="mb-2">
+                                        <!-- precio -->
+                                      <input type="hidden" value="{{cap.precio}}"name="txtPrecio" id="txtPrecio">
+                                        <h4 class="card-title">S/.{{cap.precio}} x kg</h4>
+                                    </div>
+                                </div>
+                                <div class="caja-button">
+                                    <button type="submit" class="btn">Agregar al carrito</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+{% include "sitio/pie.html" %}

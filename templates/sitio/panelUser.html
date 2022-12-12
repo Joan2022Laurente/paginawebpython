@@ -1,0 +1,23 @@
+{% include "sitio/cabecera.html" %}
+
+<div class="container pt-5">
+    PANEL DEL USUARIO 
+    <div>
+        <H1 id="NOMBREDELUSUARIO"></H1>
+    </div>
+    <div>
+        <h2 id="CORREODELUSUARIO"></h2>
+    </div>
+</div>
+
+<script>
+    document.getElementById("NOMBREDELUSUARIO").innerHTML =localStorage.usuarioNOMBRE
+    document.getElementById("CORREODELUSUARIO").innerHTML =localStorage.usuarioCORREO
+</script>
+
+
+
+
+
+
+{% include "sitio/pie.html" %}
