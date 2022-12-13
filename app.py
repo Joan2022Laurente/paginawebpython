@@ -16,10 +16,10 @@ mysql=MySQL()
 
 
 # CONFIGURACION PARA LA BASE DE DATOS
-app.config['MYSQL_DATABASE_HOST']='sql10.freemysqlhosting.net'
-app.config['MYSQL_DATABASE_USER']='sql10581834'
-app.config['MYSQL_DATABASE_PASSWORD']='aA47J6WH1Z'
-app.config['MYSQL_DATABASE_DB']='sql10581834'
+app.config['MYSQL_DATABASE_HOST']='db4free.net'
+app.config['MYSQL_DATABASE_USER']='joanjoaquin'
+app.config['MYSQL_DATABASE_PASSWORD']='935348536ceviche'
+app.config['MYSQL_DATABASE_DB']='megamarket'
 mysql.init_app(app)
 
 
