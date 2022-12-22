@@ -573,7 +573,7 @@ def biden(tblNombre):
     _codigo=request.form['txtCodigo']
     _imagen=request.form['txtImagen']
     _precio=request.form['txtPrecio']
-    sql=f"UPDATE {tblNombre} SET `nombre` = %s, `fabricante` = %s, `codigo` = %s, `imagen` = %s, `precio` = %s WHERE `populares`.`id` = %s"
+    sql=f"UPDATE {tblNombre} SET `nombre` = %s, `fabricante` = %s, `codigo` = %s, `imagen` = %s, `precio` = %s WHERE {tblNombre}.`id` = %s"
     datos=(_nombre, _fabricante ,_codigo ,_imagen, _precio,_id)
     conexion = mysql.connect()
     cursor = conexion.cursor()
