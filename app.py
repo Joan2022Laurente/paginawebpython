@@ -589,7 +589,7 @@ def borrarProdAdmin(tblNombre):
     conexion.commit()
     conexion = mysql.connect()
     cursor=conexion.cursor()
-    cursor.execute("DELETE FROM populares WHERE id = %s",(_id))
+    cursor.execute(f"DELETE FROM {tblNombre} WHERE id = %s",(_id))
     conexion.commit()
 
 
